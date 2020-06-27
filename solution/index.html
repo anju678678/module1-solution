@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message {  font-size: 1.3em;
+                  font-weight: bold;
+                  color: green;
+                  #lunch-menu:empty {
+                    color: red;
+                  }
+                }
+       .form-control {
+         border: 1px solid green;
+       }
+          /* .form-control:empty {
+            border: 1px solid red;
+          }  */
+    </style>
+  </head>
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div id="inpt" class="form-group">
+             <input id="lunch-menu" type="text" ng-model="list"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control">
+         </div>
+         <div class="form-group">
+             <button ng-click="getItem()" class="btn btn-default">Check If Too Much</button>
+         </div>
+         <div id="msg" class="form-group message">
+           {{mySplit(list)}}
+
+           <!-- Your message can go here. -->
+         </div>
+   </div>
+
+</body>
+</html>
